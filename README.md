@@ -35,3 +35,27 @@ Relevant variables include:
 - referee
 
 This dataset will allow us to analyze fight outcomes, methods of victory, weight classes, and changes in UFC fights over time.
+
+### 2. UFC Stats Dataset
+**File:** `ufcstats_data.csv`
+**Source:** TidyTuesday UFC Athletes and Fight Data
+**Link:** https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufcstats_data.csv
+This dataset contains the names of all UFC fighters as well as their stats such as wins, losses, height, etc.
+
+The dataset contains:
+
+- 8,736 rows
+- 15 columns
+
+Variables:
+
+- wins
+- losses
+- draws
+- height
+- weight
+- stance
+- td_acc
+- sub_avg
+
+This dataset will allow us to see multiple stats of all UFC fighters and it can help determine their fighting styles.
