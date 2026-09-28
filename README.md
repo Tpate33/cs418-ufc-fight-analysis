@@ -59,3 +59,11 @@ Variables:
 - sub_avg
 
 This dataset will allow us to see multiple stats of all UFC fighters and it can help determine their fighting styles.
+
+## Secondary Datasets
+### UFC Fighter Stats
+**File:** [ufc_athletes.csv](data/ufc_athletes.csv)
+**Source:** TidyTuesday UFC Athletes and Fight Data
+**Link:** https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufc_athletes.csv
+This dataset can be joined with 'ufcstats_data.csv' since it doesn't have data such as 
+fighting style, gym, place of birth, UFC Debut date, KO/TKO wins, submission win, and decision wins.
