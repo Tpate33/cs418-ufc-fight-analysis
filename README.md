@@ -89,3 +89,17 @@ We can use this dataset to see trends in fighting odds vs results, find trends t
 **Link:** https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufc_athletes.csv
 This dataset can be joined with 'ufcstats_data.csv' since it doesn't have data such as 
 fighting style, gym, place of birth, UFC Debut date, KO/TKO wins, submission win, and decision wins.
+
+The Data Contains:
+- 43 Columns
+- 3146 Rows
+
+Relevant Variables
+- weight_class
+- place_of_birth
+- age
+- height
+- weight
+- octagon_debut
+- fighting_style
+- average_fight_time
