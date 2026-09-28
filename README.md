@@ -60,6 +60,28 @@ Variables:
 
 This dataset will allow us to see multiple stats of all UFC fighters and it can help determine their fighting styles.
 
+
+### 3. Ultimate UFC Dataset
+**File:** `ufc-master.csv`
+**Source:** Kaggle
+**Link:** https://www.kaggle.com/datasets/mdabbert/ultimate-ufc-dataset?resource=download&select=ufc-master.csv
+This dataset contains all the fights ranging from 2010 - current with the fighter names, their odds, their rankings, and many other goodies.  
+
+There are:
+- 118 columns
+
+Relevant Variables:
+- R_fighter
+- B_fighter
+- R_odds
+- B_odds
+- R_ev
+- B_ev
+
+
+We can use this dataset to see trends in fighting odds vs results, find trends that can help with betting on a fighter, and also train a ML model to predict the result of a fight.
+
+
 ## Secondary Datasets
 ### UFC Fighter Stats
 **File:** [ufc_athletes.csv](data/ufc_athletes.csv)
