@@ -40,7 +40,7 @@ This dataset will allow us to analyze fight outcomes, methods of victory, weight
 **File:** `ufcstats_data.csv`
 **Source:** TidyTuesday UFC Athletes and Fight Data
 **Link:** https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufcstats_data.csv
-This dataset contains the names of all UFC fighters as well as their stats such as wins, losses, height, etc.
+This dataset contains the names of all UFC fighters that have fought since the beginning of UFC. It shows their stats such as wins, losses, height, etc.
 
 The dataset contains:
 
@@ -60,8 +60,9 @@ Variables:
 
 This dataset will allow us to see multiple stats of all UFC fighters and it can help determine their fighting styles.
 
+## Secondary Datasets
 
-### 3. Ultimate UFC Dataset
+### 1. Ultimate UFC Dataset
 **File:** `ufc-master.csv`
 **Source:** Kaggle
 **Link:** https://www.kaggle.com/datasets/mdabbert/ultimate-ufc-dataset?resource=download&select=ufc-master.csv
@@ -81,9 +82,7 @@ Relevant Variables:
 
 We can use this dataset to see trends in fighting odds vs results, find trends that can help with betting on a fighter, and also train a ML model to predict the result of a fight.
 
-
-## Secondary Datasets
-### UFC Fighter Stats
+### 2. UFC Fighter Stats
 **File:** [ufc_athletes.csv](data/ufc_athletes.csv)
 **Source:** TidyTuesday UFC Athletes and Fight Data
 **Link:** https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufc_athletes.csv
