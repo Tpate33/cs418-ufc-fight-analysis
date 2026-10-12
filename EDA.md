@@ -34,27 +34,27 @@ avoid offensive wrestling.
 
 
 ## Relationships
-**Striking vs Grappling** - This scatter plot shows us that the more successful fighters are inclined to strike as the graph is more shifted towards
-the right of the graph. Which can be used to infer that pace can dictate ones career longevity.
 
-**Stance vs Career Win Rate** - This box plot shows us that the "Switch" hitters have a higher baseline and tighter IQR that traditional orthodox
-fighters, this could be an indication that your stance could affect results.
+**Striking Accuracy vs Win Rate** - This scatter plot compares a fighter's striking accuracy with their overall career win rate. There seems to be a weak positive relationship, where fighters with higher striking accuracy sometimes have higher win rates, but there is still a lot of variation. This means striking accuracy alone does not explain a fighter's success very well.
 
-**Evolution of Decision Finishes** - The time series uses our secondary dataset which allows us to see how overtime the decision matches were judged
-which can be used to see what changes occurred to these decisions overtime.
+**Takedown Accuracy vs Win Rate** - This scatter plot compares takedown accuracy with overall career win rate. There does not seem to be a strong relationship between the two variables. Fighters with similar takedown accuracy can have very different win rates, which suggests that takedown accuracy by itself is not a strong indicator of overall success.
+
+**Fighting Style vs Average Win Rate** - This plot uses our secondary dataset `ufc_athletes.csv` joined with `ufcstats_data.csv` by fighter name. We compared the average career win rate across fighting styles. Wrestlers had one of the highest average win rates, but most fighting styles were still fairly close together. We only included styles that had at least 10 fighters so very small groups would not affect the results too much.
 
 
 ## So What?
-**Striking vs Grappling** - Style is important and can be a great indicator of ones career success and career longevity.
 
-**Stance vs Career Win Rate** - Knowing which stance has been more successful can be useful for knowing who would win a fight
+**Striking Accuracy vs Win Rate** - Striking accuracy may have some relationship with fighter success, but the large amount of variation shows that other factors also play a major role in winning.
 
-**Evolution of Decision Finishes** - Knowing how decision matches are judged overtime can show trends to see what wins fights and how to ensure
-a victory if a match goes the full distance.
+**Takedown Accuracy vs Win Rate** - Takedown accuracy alone does not seem to have a strong relationship with win rate. This suggests that just being accurate with takedowns is not enough to explain whether a fighter will be successful.
+
+**Fighting Style vs Average Win Rate** - Fighting style may have some relationship with success because wrestlers had a higher average win rate than several other styles. However, the differences between most styles were not very large, so fighting style alone probably cannot explain fight outcomes.
 
 
 ## What Next?
-The next things we can applies to all of the previous plots we looked at so far. The next things we have to do is to look deeper rather than just
-looking at all time averages, instead we will look into individual matches and get our own data out of these to make an even better educated guess
-on what it takes to win a fight. The way we would do this is by using our dataset "ufc_fights.csv" so that we can see if from match to match how
-ones stats could predict a future W/L odds.
+
+**Striking Accuracy vs Win Rate** - We could next see whether striking accuracy has a stronger relationship with winning when fighters are separated by weight class or when it is combined with other striking statistics.
+
+**Takedown Accuracy vs Win Rate** - We could compare takedown accuracy with takedown volume or takedown average to see if fighters who attempt and land more takedowns have different results.
+
+**Fighting Style vs Average Win Rate** - We could compare fighting styles within individual weight classes or combine style with striking and grappling statistics to see whether certain styles perform better in certain situations.
