@@ -102,3 +102,24 @@ Relevant Variables
 - octagon_debut
 - fighting_style
 - average_fight_time
+
+
+
+
+## Exploratory Analysis
+-----------------------------------------
+Our exploratory data science phase evaluated 4,504 unique UFC athletes alongside 8,736 historical matches to uncover hidden tactical and physical success signals.
+
+### Core Dataset Metadata
+* **Primary Athletes Database (`ufcstats_data.csv`):** 4,504 Rows | 19 Columns
+* **Historical Match Database (`ufc_fights.csv`):** 8,736 Rows | 16 Columns
+
+### Cleaned System Anomalies
+All mixed physical text tags (`155 lbs.`, `42%`) and literal string `"NA"` characters were filtered out via regular expressions, normalized into uniform numeric systems, and safely logged without row-loss deletion.
+
+### Revised Project Research Framework
+1. What baseline physical attributes and dynamic stance metrics correlate with higher career win ratios across distinct eras?
+2. How do strike-delivery volumes vs. offensive grappling paces split out long-term veteran paths from short-duration prospect profiles?
+3. How has the baseline frequency of distance decisions vs. early knockout finishes evolved chronologically over the sport's developmental eras?
+
+* **Why they changed:** The data profiling phase exposed that legacy physical traits (such as reach values before 2005) suffer from an intense 43% null deficiency rate. We adjusted our research questions to focus on high-fidelity features (Stance, Volume Output, and Match Chronology) to eliminate any historical entry bias in our future predictive models.
