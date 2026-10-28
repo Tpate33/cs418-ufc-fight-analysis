@@ -44,8 +44,8 @@ This dataset contains the names of all UFC fighters that have fought since the b
 
 The dataset contains:
 
-- 8,736 rows
-- 15 columns
+- 4,504 rows
+- 18 columns
 
 Variables:
 
