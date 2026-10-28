@@ -108,3 +108,59 @@
 *   **Sample:** 8,736 UFC fights.
 *   **Missing from Data:** Scheduled fights that did not take place, early-era fights (1993–1994) where referee reporting was less standardized.
 *   **Limitation:** The dataset only includes completed bouts. It cannot speak to how often fights are cancelled. Early-era data may underreport certain finish types due to less record-keeping and different rules.
+
+
+# Part 3 — Codebook
+## Dataset A: `ufc_fights` (raw columns)
+
+| name | type | units | meaning | range / allowed values | missing coded as | source |
+|---|---|---|---|---|---|---|
+| `fight_url` | str | — | UFCStats.com page URL for the bout | unique URLs | none | raw |
+| `event_name` | str | — | Name of the UFC event | free text | none | raw |
+| `date` | datetime | date | Date the event took place | 1994-03-11 to 2026-06-27 | none | raw; parsed via `pd.to_datetime()` |
+| `location` | str | — | Host city + state/country | free text | none | raw |
+| `f1_name` | str | — | First listed fighter's name | matches UFCStats spelling | none | raw |
+| `f1_result` | str | — | Outcome for fighter 1 | `"W"`, `"L"` | none (incomplete bouts removed upstream) | raw |
+| `f2_name` | str | — | Second listed fighter's name | matches UFCStats spelling | none | raw |
+| `f2_result` | str | — | Outcome for fighter 2 | `"W"`, `"L"` | none | raw |
+| `weight_class` | str | — | Bout category | 123 values, e.g. `"Lightweight Bout"`, `"UFC Lightweight Title Bout"` | none | raw |
+| `method` | str | — | How the fight ended | 10 values: Decision (Unanimous/Split/Majority), KO/TKO, Submission, TKO - Doctor's Stoppage, DQ, Overturned, Could Not Continue, Other | none | raw |
+| `round` | int | round # | Round in which the fight ended | 1–5 | none | raw |
+| `time` | str | min/sec | Elapsed time in final round at stoppage | e.g. `"5M 0S"`, `"38S"` | none | raw |
+| `time_format` | str | rounds | Scheduled fight length | e.g. `"3 Rnd (5-5-5)"`, `"5 Rnd (5-5-5-5-5)"` | none | raw |
+| `referee` | str | — | Referee name | free text | none | raw |
+| `judging_details` | str | — | Scorecard or stoppage description | free text (e.g. `"Punches to Head On Ground"`) | none detected in raw CSV | raw |
+
+## Dataset B: `ufcstats_data` (raw columns)
+
+| name | type | units | meaning | range / allowed values | missing coded as | source |
+|---|---|---|---|---|---|---|
+| `name` | str | — | Fighter name as listed on UFCStats | matches `f1_name`/`f2_name` join key | none | raw |
+| `wins` | int | bouts | Career wins | 0–~100+ | none | raw |
+| `losses` | int | bouts | Career losses | 0–~100+ | none | raw |
+| `draws` | int | bouts | Career draws | 0–few | none | raw |
+| `nc` | int | bouts | No-contest results | 0–few | none | raw |
+| `height` | str → float | inches | Fighter height | formatted `"5' 11\""`; converted to numeric | literal string `"NA"` | raw; parsed in `<your_script>.py` |
+| `weight` | str → float | pounds | Listed weight class weight | formatted `"155 lbs."`; converted to numeric | literal string `"NA"` | raw; parsed in `<your_script>.py` |
+| `reach` | str → float | inches | Arm reach | formatted `"70\""`; converted to numeric | literal string `"NA"` | raw; parsed in `<your_script>.py` |
+| `stance` | str | — | Fighting stance | `"Orthodox"`, `"Southpaw"`, `"Switch"`, `"Open Stance"`, `"Sideways"` | literal string `"NA"` | raw |
+| `dob` | str → datetime | date | Date of birth | formatted `"Jul 13, 1978"`; parsed to date | literal string `"NA"` | raw; parsed in `<your_script>.py` |
+| `s_lp_m` | float | strikes/min | Significant strikes landed per minute | ~0–10 | none | raw |
+| `str_acc` | str → float | proportion | Significant striking accuracy | formatted `"77%"`; converted to 0–1 | literal string `"NA"` if present | raw; `%` stripped in `<your_script>.py` |
+| `s_ap_m` | float | strikes/min | Significant strikes absorbed per minute | ~0–10 | none | raw |
+| `str_def` | str → float | proportion | Significant strike defense | formatted `"66%"`; converted to 0–1 | `"NA"` if present | raw; `%` stripped in `<your_script>.py` |
+| `td_avg` | float | takedowns/15 min | Average takedowns landed | 0–~15 | none | raw |
+| `td_acc` | str → float | proportion | Takedown accuracy | formatted `"33%"`; converted to 0–1 | `"NA"` if present | raw; `%` stripped in `<your_script>.py` |
+| `td_def` | str → float | proportion | Takedown defense | formatted `"77%"`; converted to 0–1 | `"NA"` if present | raw; `%` stripped in `<your_script>.py` |
+| `sub_avg` | float | attempts/15 min | Average submission attempts | 0–~10 | none | raw |
+
+## Derived columns (created in analysis)
+
+| name | type | units | meaning | range / allowed values | missing coded as | source |
+|---|---|---|---|---|---|---|
+| `win_ratio` | float | proportion | Career win rate | 0–1 | `NaN` if wins+losses+draws = 0 | derived: `wins / (wins + losses + draws)` |
+| `career_length` | int | years | Years between first and last fight | 0–~25 | n/a | derived from `ufc_fights` dates per fighter |
+| `era` | str/int | category | Developmental era label | e.g. `1993–2000`, `2001–2010`, `2011–2026` | none | derived: binned by `date` |
+| `finish_type` | str | category | Simplified outcome class | `"Decision"`, `"KO/TKO"`, `"Submission"`, `"Other"` | none | derived: recoded from `method` |
+| `early_finish` | int (bool) | 0/1 | Fight ended before final scheduled round | 0 or 1 | none | derived: compares `round` vs `time_format` |
+| `striking_vs_grappling` | float | ratio | Strike volume relative to grappling pace | 0–∞ | `NaN` if `td_avg + sub_avg = 0` | derived: `s_lp_m / (td_avg + sub_avg)` |
