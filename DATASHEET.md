@@ -40,6 +40,49 @@
 
 ## Dataset B: UFC Stats Athlete Profiles (`ufcstats_data`)
 
+| | |
+|---|---|
+| Rows × Cols | 4,504 × 18 |
+| One row = | One UFC fighter's career profile |
+| Years covered | Fighters active 1993–2026 |
+| Geography | Global roster|
+| Missing data | `height`, `weight`, `reach`, `dob`: `"NA"` placeholder strings; `stance`: `"NA"` in some rows |
+| License | CC0 1.0 Universal (via TidyTuesday) |
+
+### 1. Motivation
+- **Creation:** Companion athlete-level file to `ufc_fights`, released for the same TidyTuesday week so users can join fighter attributes to bout outcomes. Created and compiled by Benjamin Smith(curator) via the `fightr` package.
+- **Funded by:** Volunteer-driven community project.
+
+### 2. Composition
+- **One row represents:** One individual UFC fighter, with career totals and performance averages.
+- **Rows / Columns:** 4,504 × 18.
+- **Census?** Census of fighters with a UFCStats.com profile page as of the scrape date. Not a random sample.
+- **What's missing:** The publisher uses the literal string `"NA"` (not a null/missing marker) to indicate unavailable data. Gaps are concentrated in physical attributes:
+    - `height`, `weight`, `reach`, `dob`: `"NA"` for fighters whose measurements were never published on UFCStats
+    - `stance`: `"NA"` in a subset of rows (stance was not always recorded historically).
+    - All numeric career stats (`wins`, `losses`, `draws`, `nc`) are fully populated.
+    - Performance metrics (`str_acc`, `td_acc`, etc.) are stored as percentage-formatted strings (e.g. `"77%"`) rather than numeric proportions.
+
+### 3. Collection process
+- **Gathering method:** Automated scraping and API aggregation. The `fightr` package compiles data from UFCStats, Kaggle datasets, and the Octagon API.
+- **Time frame:** Career statistics accumulated from each fighter's debut through the July 2026 snapshot.
+- **Consent:** The data is about public sporting events and publicly available athlete profiles. No direct consent was required because the data is public record.
+
+### 4. Preprocessing
+- **Publisher cleaning:** `fightr` standardizes names to match UFCStats listings and cleans column names via `janitor::clean_names()`. The publisher does **not** convert placeholder `"NA"` strings to true missing values, nor does it parse height/weight/reach into numerics. Accuracy fields are stored as formatted strings with `%` symbols.
+- **Raw data** The raw CSV is in the TidyTuesday GitHub repository.
+
+### 5. Uses
+- **Already used for:** Analyses linking reach/height advantages to win rates and striking/takedown accuracy to divisional ranking.
+- **Should not be used for:** Betting recommendations; comparing eras directly, inferring health or injury status.
+
+### 6. Distribution
+- **Published:** TidyTuesday GitHub Repository (`rfordatascience/tidytuesday`) in CSV format.
+- **License:** CC0 1.0 Universal (Public Domain). No restrictions on reuse.
+
+### 7. Maintenance
+- **Maintained by:** Jon Harmon (Owner of repo)
+- **Updated?** The TidyTuesday GitHub repo is updated weekly. However, this ufc data is from July 2026 and has been the same since. For this dataset, updates would require a new `fightr` package release or an expanded UFC dataset.
 
 
 
