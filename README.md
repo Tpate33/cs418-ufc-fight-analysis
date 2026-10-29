@@ -124,7 +124,7 @@ All mixed physical text tags (`155 lbs.`, `42%`) and literal string `"NA"` chara
 
 ## Data Documentation
 
-Full documentation in [`data.md`](data.md).
+Full documentation in [`DATASHEET.md`](DATASHEET.md).
 
 | Dataset | Source | License |
 | --- | --- | --- |
