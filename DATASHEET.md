@@ -86,7 +86,7 @@
 
 
 
-# Part 2 — Scope
+## Part 2 — Scope
 
 **RQ1: What baseline physical attributes and dynamic stance metrics correlate with higher career win ratios across distinct eras?**
 *   **Target Population:** All professional MMA fighters who have competed in any professional promotion.
@@ -110,7 +110,7 @@
 *   **Limitation:** The dataset only includes completed bouts. It cannot speak to how often fights are cancelled. Early-era data may underreport certain finish types due to less record-keeping and different rules.
 
 
-# Part 3 — Codebook
+## Part 3 — Codebook
 ## Dataset A: `ufc_fights` (raw columns)
 
 | name | type | units | meaning | range / allowed values | missing coded as | source |
@@ -164,3 +164,15 @@
 | `finish_type` | str | category | Simplified outcome class | `"Decision"`, `"KO/TKO"`, `"Submission"`, `"Other"` | none | derived: recoded from `method` |
 | `early_finish` | int (bool) | 0/1 | Fight ended before final scheduled round | 0 or 1 | none | derived: compares `round` vs `time_format` |
 | `striking_vs_grappling` | float | ratio | Strike volume relative to grappling pace | 0–∞ | `NaN` if `td_avg + sub_avg = 0` | derived: `s_lp_m / (td_avg + sub_avg)` |
+
+## Part 4 — Recipe
+
+1. **Load  files** from `ufc_fights.csv`, `ufcstats_data.csv`. Cells 1–4 (`pl.read_csv` calls).
+2. **Fix placeholder missing values** in `ufcstats_data`: literal string `"NA"` → true nulls across all string columns. Cell 8.
+3. **Parse numeric fields**: strip `%` from `str_acc`, `str_def`, `td_acc`, `td_def` and cast to float; strip `" lbs."` from `weight`; strip `'"'` from `reach`. Rows dropped: 0. Cells 9–11.
+4. **Derive `win_rate`**: `wins / (wins + losses + draws) × 100`, rounded to 1 dp; set to 0 when total fights = 0. Cell 12.
+5. **Parse dates** in `ufc_fights`: `date` string → Date type, extract `fight_year`. Rows dropped: 0. Cell 13.
+6. **Aggregate timeline table**: group fights by `fight_year`, compute total fights and % decided by decision. Result: 33 rows (1994–2026). Cell 14.
+7. **EDA plots**: four histograms (wins, reach, takedown avg, striking accuracy). Cell 16.
+
+Final shapes: fighter info dataset 4,504 × 19 · fights info dataset 8,736 × 16 · timeline 33 × 3.

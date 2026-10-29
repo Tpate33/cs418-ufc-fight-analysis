@@ -104,8 +104,6 @@ Relevant Variables
 - average_fight_time
 
 
-
-
 ## Exploratory Analysis
 -----------------------------------------
 Our exploratory data science phase evaluated 4,504 unique UFC athletes alongside 8,736 historical matches to uncover hidden tactical and physical success signals.
@@ -123,3 +121,14 @@ All mixed physical text tags (`155 lbs.`, `42%`) and literal string `"NA"` chara
 3. How has the baseline frequency of distance decisions vs. early knockout finishes evolved chronologically over the sport's developmental eras?
 
 * **Why they changed:** The data profiling phase exposed that legacy physical traits (such as reach values before 2005) suffer from an intense 43% null deficiency rate. We adjusted our research questions to focus on high-fidelity features (Stance, Volume Output, and Match Chronology) to eliminate any historical entry bias in our future predictive models.
+
+## Data Documentation
+
+Full documentation in [`data.md`](data.md).
+
+| Dataset | Source | License |
+| --- | --- | --- |
+| [UFC Fights](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufc_fights.csv) | TidyTuesday (rfordatascience/tidytuesday) | CC0 1.0 Universal |
+| [UFC Stats](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufcstats_data.csv) | TidyTuesday (rfordatascience/tidytuesday) | CC0 1.0 Universal |
+
+**Biggest limitation:** The data only covers fighters in the UFC, so results reflect elite MMA fighters, it cannot be generalized to all of the sport. It also lacks demographic fields (age, gender, nationality), limiting any representation analysis. However, the datasheets can be combined with other data which could makeup for some limitations.
