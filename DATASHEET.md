@@ -176,3 +176,49 @@
 7. **EDA plots**: four histograms (wins, reach, takedown avg, striking accuracy). Cell 16.
 
 Final shapes: fighter info dataset 4,504 × 19 · fights info dataset 8,736 × 16 · timeline 33 × 3.
+
+
+## Part 5 — Access and Reuse
+
+### Dataset A: UFC Historical Fight Database (`ufc_fights`)
+
+| FAIR principle | Item | Details |
+|---|---|---|
+| **Findable** | Source | https://github.com/rfordatascience/tidytuesday/tree/main/data/2026/2026-07-07 |
+|  | Direct download URL | https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-07-07/ufc_fights.csv |
+|  | Version / access date | TidyTuesday release dated 2026-07-07 |
+| **Accessible** | Access | Open access through GitHub; no authentication required |
+| **Interoperable** | File format | CSV |
+| **Reusable** | License | CC0 1.0 Universal |
+|  | Processed data reuse | Processed data may be reused if the group releases it under the same or another compatible open license |
+
+### Dataset B: UFC Stats Athlete Profiles (`ufcstats_data`)
+
+| FAIR principle | Item | Details |
+|---|---|---|
+| **Findable** | Source | https://github.com/rfordatascience/tidytuesday/tree/main/data/2026/2026-07-07 |
+|  | Direct download URL | https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2026/2026-07-07/ufcstats_data.csv |
+|  | Version / access date | TidyTuesday release dated 2026-07-07 |
+| **Accessible** | Access | Open access through GitHub; no authentication required |
+| **Interoperable** | File format | CSV |
+| **Reusable** | License | CC0 1.0 Universal |
+|  | Processed data reuse | Processed data may be reused if the group releases it under the same or another compatible open license |
+
+## Part 6 — People in the Data
+
+### Who is represented
+
+- `ufc_fights.csv` represents professional UFC fighters and includes referee names associated with recorded UFC bouts.
+- `ufcstats_data.csv` represents professional UFC fighters with UFCStats profile information.
+- The data describes public fight results and publicly available athlete statistics.
+
+### Representation and potential misrepresentation
+
+- The data only includes fighters who reached the UFC, so it does not represent all professional MMA fighters.
+- Fighters from other promotions, amateur fighters, and athletes without UFCStats profiles are missing.
+- Women are underrepresented because women's divisions were introduced later and there are fewer women's weight classes.
+- The dataset does not include race, ethnicity, nationality, gender identity, or socioeconomic information. Date of birth is available for some fighters, so age can sometimes be derived.
+
+### Ethical considerations
+
+Although the datasets are publicly available and released under CC0, they describe real people's careers and performance. Analyses should stay within what the recorded UFC statistics support. The data should not be used to make unsupported claims about a fighter's health, intelligence, character, or overall ability outside the measured performance statistics. Researchers should also avoid sensationalizing losses, injuries, or poor performance when presenting results.
