@@ -175,8 +175,6 @@
 
 ## Part 4 — Recipe
 
-## Part 4 — Recipe
-
 1. **Load files** from `ufc_fights.csv`, `ufcstats_data.csv`, `ufc-master.csv`, and `ufc_athletes.csv`. Cell 1–4 in `data_acquisition.ipynb` (`pl.read_csv` calls).
 2. **Load files** from `ufc_fights.csv`, `ufcstats_data.csv`, and `ufc_athletes.csv`. Cell 1 in `eda.ipynb` (`pl.read_csv` calls).
 3. **Fix placeholder missing values** in `ufcstats_data`: literal string `"NA"` → true nulls across all string columns. Cell 1 in `eda.ipynb`.
