@@ -6,9 +6,9 @@ The project will investigate UFC fight outcomes and the factors associated with 
 
 Our current research questions are:
 
-1. What fighter and fight characteristics are associated with winning UFC fights?
-2. How are striking and grappling statistics associated with fight outcomes?
-3. How have UFC fight characteristics and outcomes changed over time?
+1. Do taller fighters, or fighters with longer reach or a reach advantage, win more often?
+2. Are strikers or grapplers more successful — is striking accuracy or takedown accuracy more strongly tied to winning?
+3. How has the baseline frequency of distance decisions vs. early knockout finishes evolved over the sport's developmental eras?
 
 ## Primary Datasets
 
@@ -85,7 +85,7 @@ Relevant variables include:
 - title bout flag
 - pre-fight career stats (striking accuracy, takedown average, age, reach)
 
-We can use this dataset to see trends in fighting odds vs results, find trends that can help with betting on a fighter, and also train a ML model to predict the result of a fight. Unlike the other files, the stats here are snapshots taken before each fight, which matters when we try to predict outcomes.
+We can use this dataset to see trends in fighting odds vs results, find trends that can help with betting on a fighter, and also train a logistic regression model to predict the winner of an individual bout. Unlike the other files, the stats here are pre-fight snapshots (not career aggregates), which avoids outcome leakage. Adding the betting odds as a predictor lets us test whether any fighter characteristic carries information the market has not already priced in.
 
 ### 2. UFC Fighter Stats
 **File:** [ufc_athletes.csv](data/ufc_athletes.csv)
@@ -111,3 +111,39 @@ Relevant variables include:
 - average_fight_time
 
 This dataset will allow us to see multiple stats of all UFC fighters and it can help determine their fighting styles.
+
+## Exploratory Analysis
+-----------------------------------------
+Our exploratory phase evaluated 4,504 unique UFC athletes alongside 8,736 historical matches to identify which physical and technical attributes are associated with winning.
+
+### Core Dataset Metadata
+* **Primary Athletes Database (`ufcstats_data.csv`):** 4,504 Rows | 19 Columns
+* **Historical Match Database (`ufc_fights.csv`):** 8,736 Rows | 16 Columns
+* **Secondary Join Table (`ufc_athletes.csv`):** 3,145 Rows | 43 Columns (supplies `fighting_style`; joins to 65% of athletes by name)
+* **Predictive Modeling Table (`ufc-master.csv`):** 7,177 Rows | 118 Columns (pre-fight snapshots, difference columns, betting odds)
+
+### Cleaned Anomalies
+Literal `"NA"` strings were converted to real nulls so they register in `null_count`. Unit suffixes and percent signs (`155 lbs.`, `42%`) were stripped and cast to numeric types. Dates were parsed into a `fight_year` field for chronological grouping. No rows were dropped during cleaning. The 1,580 fighters not matched to `ufc_athletes.csv` by name were dropped during the join step, not during cleaning.
+
+### Revised Project Research Framework
+1. Do taller fighters, or fighters with longer reach or a reach advantage, win more often?
+2. Are strikers or grapplers more successful — is striking accuracy or takedown accuracy more strongly tied to winning?
+3. How has the baseline frequency of distance decisions vs. early knockout finishes evolved over the sport's developmental eras?
+
+### Original Project Research Questions
+1. What fighter and fight characteristics are associated with winning UFC fights?
+2. How are striking and grappling statistics associated with fight outcomes?
+3. How have UFC fight characteristics and outcomes changed over time?
+
+* **Why they changed:** Our original phrasing was too abstract to implement with the available data. The revised questions directly map to the columns we can analyze: reach/height for Q1, striking/takedown accuracy for Q2, and `method` + `date` for Q3. We also added a fight-level prediction question (below) because career stats leak the outcome and have survivorship bias — this is now our primary modeling goal.
+
+## Data Documentation
+
+Full documentation in [`DATASHEET.md`](DATASHEET.md).
+
+| Dataset | Source | License |
+| --- | --- | --- |
+| [UFC Fights](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufc_fights.csv) | TidyTuesday (rfordatascience/tidytuesday) | CC0 1.0 Universal |
+| [UFC Stats](https://github.com/rfordatascience/tidytuesday/blob/main/data/2026/2026-07-07/ufcstats_data.csv) | TidyTuesday (rfordatascience/tidytuesday) | CC0 1.0 Universal |
+
+**Biggest limitation:** The data only covers fighters in the UFC, so results reflect elite MMA fighters and cannot be generalized to all of the sport. Demographic coverage is partial rather than absent: age is available in `ufc_athletes.csv` (~3,145 active fighters) and in `ufc-master.csv` (`R_age`/`B_age`, post-2010 bouts only); gender is available in `ufc-master.csv`; nationality is not recorded directly, though `place_of_birth` in `ufc_athletes.csv` and event `country` in `ufc_fights.csv` serve as partial proxies. Joining the secondary files closes some gaps but introduces its own coverage limit — only 65% of fighters match by name across sources.
