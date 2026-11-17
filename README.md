@@ -1,6 +1,10 @@
 # cs418-ufc-fight-analysis
 Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 
+## Main Findings (Narrative Analysis)
+
+- In the 7,169 fights with reach data, the winner’s mean reach advantage was −0.55 cm (95% CI [−0.76, −0.34]), but the median was 0 cm and extreme implausible values make this estimate unreliable until the reach data are checked.
+
 ## Research Questions
 The project will investigate UFC fight outcomes and the factors associated with winning.
 
