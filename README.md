@@ -3,7 +3,7 @@ Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 
 ## Main Findings (Narrative Analysis)
 
-- In the 7,169 fights with reach data, the winner’s mean reach advantage was +0.55 cm (95% CI [0.34, 0.76]), but the median was 0 cm and the effect is negligible (Cohen's d = 0.06). A few rows have implausible values (a recorded reach of 0 cm, or a `reach_dif` that does not match the two fighters' reaches), so this estimate is unreliable until the reach data are checked. *(Corrected: the `_dif` columns in `ufc-master.csv` are Blue − Red, so an earlier version of this finding had the sign flipped.)*
+- In the 7,169 fights with reach data, the winner’s mean reach advantage was +0.55 cm (95% CI [0.34, 0.76]), but the median was 0 cm and the effect is negligible (Cohen's d = 0.06). A few rows have implausible values (a recorded reach of 0 cm, or a `reach_dif` that does not match the two fighters' reaches), so this estimate is unreliable until the reach data are checked. 
 
 - In the 6,282 fights with pre-fight striking-accuracy data, winners had a mean accuracy advantage of 1.79% (95% CI [1.46, 2.12]), which means there's a small positive relation which varies by weight class.
 
