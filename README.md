@@ -7,7 +7,16 @@ Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 
 - In the 6,282 fights with pre-fight striking-accuracy data, winners had a mean accuracy advantage of 1.79% (95% CI [1.46, 2.12]), which means there's a small positive relation which varies by weight class.
 
-- Winners also held a small pre-fight grappling edge: +0.24 takedowns per 15 min (95% CI [0.20, 0.28], n = 7,169) and +3.07 percentage points of takedown accuracy (95% CI [2.30, 3.84], n = 6,216). Comparing standardized effects, striking accuracy (d = 0.13) and takedown volume (d = 0.13) are equally tied to winning, while takedown accuracy is slightly weaker (d = 0.10). So for Q2, neither strikers nor grapplers clearly dominate: striking accuracy edges out takedown accuracy, but all of these effects are small on their own.
+- ### Finding one Analysis
+
+The within-fight reach comparison estimated a mean winner-minus-opponent difference of −0.55 cm (n = 7,169; 95% CI [−0.76, −0.34]; *t* = −5.16, *p* = 2.5 × 10⁻⁷), while the median difference was 0 cm. The estimated average is small, and the median indicates that a typical fight had no reach difference favoring the winner. However, the largest-difference check found implausible values of −187.96 cm and −160.02 cm, which suggest a data or unit problem that could affect the mean, confidence interval, and test; verify and correct these records, then rerun the analysis before treating the estimate as reliable. The weight-class check also showed the average difference varied in direction: it was −2.01 cm in Heavyweight but +0.58 cm in Women’s Strawweight, so the overall average does not describe every division. These comparisons do not adjust for other factors such as fighter experience, and the test does not account for fighters appearing in multiple bouts.
+
+![Winners had no meaningful reach advantage, but extreme reach values need verification](figures/reach-advantage-by-winner.png)
+
+### Finding two Analysis
+
+The within-fight comparison of pre-fight significant-strike accuracy found a mean winner-minus-opponent advantage of 1.79 percentage points (n = 6,282; 95% CI [1.46, 2.12]; *t* = 10.55, *p* = 8.65 × 10⁻²⁶), with a median advantage of 2 percentage points. This is evidence of a small positive average association, not evidence that higher accuracy causes a win or is a strong standalone predictor. The weight-class check suggests the association is not uniform: the mean was approximately −0.03 percentage points in Light Heavyweight and +2.90 points in Bantamweight. Differences in opponent quality, experience, or other matchup characteristics could also contribute, and this analysis does not control for them. The confidence interval and test treat fights as independent, although some fighters appear in multiple bouts, which may understate uncertainty.
+
 
 ## Research Questions
 The project will investigate UFC fight outcomes and the factors associated with winning.
