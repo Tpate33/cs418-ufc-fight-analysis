@@ -66,7 +66,7 @@ The `fighting_style` column in `ufc_athletes.csv` is free-text scraped from UFC 
 
 **Fighting Style vs Average Win Rate** - Now that the raw labels are collapsed into families and short careers are filtered out, we could test whether style interacts with the technique stats, for example whether strikers with high takedown defense win more often than strikers without it.
 
-**Move to a fight-level logistic regression** - Rather than predicting career win rate, predict the winner of each individual bout from differences between the two fighters, which sidesteps the survivorship bias in career aggregates. `ufc-master.csv` already supplies red-minus-blue difference columns plus pre-fight stat snapshots and betting odds, so the starting model is:
+**Move to a fight-level logistic regression** - Rather than predicting career win rate, predict the winner of each individual bout from differences between the two fighters, which sidesteps the survivorship bias in career aggregates. `ufc-master.csv` already supplies difference columns plus pre-fight stat snapshots and betting odds. Note that its `_dif` columns are **blue-minus-red** (e.g. `reach_dif = B_Reach_cms - R_Reach_cms`), so they must be negated (or built directly from the `R_`/`B_` columns) before modeling `red_wins`. The starting model is:
 
   red_wins ~ reach_dif + height_dif + age_dif + sig_str_acc_dif + avg_td_dif + C(weight_class) + C(stance_matchup)
 

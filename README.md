@@ -3,9 +3,11 @@ Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 
 ## Main Findings (Narrative Analysis)
 
-- In the 7,169 fights with reach data, the winner’s mean reach advantage was −0.55 cm (95% CI [−0.76, −0.34]), but the median was 0 cm and extreme implausible values make this estimate unreliable until the reach data are checked.
+- In the 7,169 fights with reach data, the winner’s mean reach advantage was +0.55 cm (95% CI [0.34, 0.76]), but the median was 0 cm and the effect is negligible (Cohen's d = 0.06). A few rows have implausible values (a recorded reach of 0 cm, or a `reach_dif` that does not match the two fighters' reaches), so this estimate is unreliable until the reach data are checked. *(Corrected: the `_dif` columns in `ufc-master.csv` are Blue − Red, so an earlier version of this finding had the sign flipped.)*
 
 - In the 6,282 fights with pre-fight striking-accuracy data, winners had a mean accuracy advantage of 1.79% (95% CI [1.46, 2.12]), which means there's a small positive relation which varies by weight class.
+
+- Winners also held a small pre-fight grappling edge: +0.24 takedowns per 15 min (95% CI [0.20, 0.28], n = 7,169) and +3.07 percentage points of takedown accuracy (95% CI [2.30, 3.84], n = 6,216). Comparing standardized effects, striking accuracy (d = 0.13) and takedown volume (d = 0.13) are equally tied to winning, while takedown accuracy is slightly weaker (d = 0.10). So for Q2, neither strikers nor grapplers clearly dominate: striking accuracy edges out takedown accuracy, but all of these effects are small on their own.
 
 ## Research Questions
 The project will investigate UFC fight outcomes and the factors associated with winning.
