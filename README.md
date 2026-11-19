@@ -5,6 +5,8 @@ Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 
 - In the 7,169 fights with reach data, the winner’s mean reach advantage was −0.55 cm (95% CI [−0.76, −0.34]), but the median was 0 cm and extreme implausible values make this estimate unreliable until the reach data are checked.
 
+- In the 6,282 fights with pre-fight striking-accuracy data, winners had a mean accuracy advantage of 1.79% (95% CI [1.46, 2.12]), which means there's a small positive relation which varies by weight class.
+
 ## Research Questions
 The project will investigate UFC fight outcomes and the factors associated with winning.
 
