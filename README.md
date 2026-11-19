@@ -12,6 +12,8 @@ Names: Taufeeq Patel, Christian Pimentel, Uzair Azizuddin, Firas Al Halaq
 The within-fight reach comparison estimated a mean winner-minus-opponent difference of −0.55 cm (n = 7,169; 95% CI [−0.76, −0.34]; *t* = −5.16, *p* = 2.5 × 10⁻⁷), while the median difference was 0 cm. The estimated average is small, and the median indicates that a typical fight had no reach difference favoring the winner. However, the largest-difference check found implausible values of −187.96 cm and −160.02 cm, which suggest a data or unit problem that could affect the mean, confidence interval, and test; verify and correct these records, then rerun the analysis before treating the estimate as reliable. The weight-class check also showed the average difference varied in direction: it was −2.01 cm in Heavyweight but +0.58 cm in Women’s Strawweight, so the overall average does not describe every division. These comparisons do not adjust for other factors such as fighter experience, and the test does not account for fighters appearing in multiple bouts.
 
 ![Winners had no meaningful reach advantage, but extreme reach values need verification](figures/reach-advantage-by-winner.png)
+![Winners entered fights with slightly higher striking accuracy](figures/str_acc-advantage-by-winner.png)
+
 
 ### Finding two Analysis
 
